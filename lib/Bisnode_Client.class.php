@@ -71,6 +71,12 @@ class Bisnode_Client
     return $result->success ? true : false;
   }
 
+  public function setMode($api_mode)
+  {
+    $this->api_mode = $api_mode;
+    return $this;
+  }
+  
   
   public function getShortReport($reg_code)
   {
