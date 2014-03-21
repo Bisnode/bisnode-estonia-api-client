@@ -19,13 +19,10 @@
 class Bisnode_Client
 {
   
-  private $api_url   = 'http://localhost/api'; //'http://www.bisnode.ee/intranet/api';
-  private $api_mode  = 'json';
-
-
-  private $client = null,
-          $debug  = true,
-          $log    = array()
+  private $api_url   = 'http://localhost/api', //'http://www.bisnode.ee/intranet/api';
+          $api_mode  = 'json',
+          $client    = null,
+          $debug     = true
           ;
   
   private static $instance = null;
@@ -91,7 +88,7 @@ class Bisnode_Client
    * @param callback $wrap
    * @return SimpleXMLElement or wrapped/raw data
    */
-  private function _request( $url, $post = null, $wrap = 'SimpleXMLElement' )
+  private function _request( $url, $post = null )
   {
     
     $wrap = $this->api_mode == 'json' 
@@ -140,6 +137,7 @@ class Bisnode_Client
    */
   private function _log($message)
   {
+    if (!$this->debug) return;
     echo date('Y-m-d H:i:s') . ' '. substr($message, 0, 255) ."\n";
   }
   
