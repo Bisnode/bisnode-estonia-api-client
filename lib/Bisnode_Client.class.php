@@ -37,7 +37,7 @@ class Bisnode_Client
 
   /**
    * Get instance of Bisnode client
-   * @return Bisnode
+   * @return Bisnode_Client
    */
   public static function getInstance()
   {
@@ -46,14 +46,31 @@ class Bisnode_Client
       : self::$instance;
   }
 
-  
+  /**
+   * Login with api_key
+   * @param type $api_key must be generated in www.bisnode.ee/intranet/api
+   * @return bool success
+   */
   public function login($api_key)
   {
     $result = $this->_request('login', array('key'=>$api_key));
     return isset($result->success) ? true : false;
   }
 
+  /**
+   * Logout
+   * @return bool success
+   */
+  public function logout()
+  {
+    $result = $this->_request('logout');
+    return $result->success ? true : false;
+  }
   
+  /**
+   * Check client permissions
+   * @return string
+   */
   public function permission()
   {
     $result = array();
@@ -62,19 +79,22 @@ class Bisnode_Client
     return $result;
   }
   
-  public function logout()
-  {
-    $result = $this->_request('logout');
-    return $result->success ? true : false;
-  }
-
+  /**
+   * Set mode of requests
+   * @param string $api_mode 'xml' or 'json' is now supported
+   * @return Bisnode_Client
+   */
   public function setMode($api_mode)
   {
     $this->api_mode = $api_mode;
     return $this;
   }
   
-  
+  /**
+   * Get company short report
+   * @param type $reg_code
+   * @return type
+   */
   public function getShortReport($reg_code)
   {
     $result = $this->_request('shortreport', array('id'=>$reg_code));
@@ -85,8 +105,7 @@ class Bisnode_Client
    * Request API with post or without
    * @param string $url
    * @param array|string $post
-   * @param callback $wrap
-   * @return SimpleXMLElement or wrapped/raw data
+   * @return SimpleXMLElement or object
    */
   private function _request( $url, $post = null )
   {
