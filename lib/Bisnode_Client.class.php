@@ -54,9 +54,23 @@ class Bisnode_Client {
    * @param type $reg_code
    * @return Bisnode_Client
    */
+  public function getListOfCompanies()
+  {
+    $this->_request('listcompanieszipped');
+    $this->raw_data = gzinflate(substr($this->raw_data,10,-8)); 
+    return $this;
+  }
+
+  
+  
+  /**
+   * Get company short report
+   * @param type $reg_code
+   * @return Bisnode_Client
+   */
   public function getShortReport($reg_code)
   {
-    $result = $this->_request('shortreport', array('id' => $reg_code));
+    $this->_request('shortreport', array('id' => $reg_code));
     return $this;
   }
 
@@ -67,7 +81,7 @@ class Bisnode_Client {
    */
   public function getKmkrData($reg_code)
   {
-    $result = $this->_request('kmkrData', array('id' => $reg_code));
+    $this->_request('kmkrData', array('id' => $reg_code));
     return $this;
   }
 
@@ -78,7 +92,7 @@ class Bisnode_Client {
    */
   public function getTaxArrears($reg_code)
   {
-    $result = $this->_request('taxArrears', array('id' => $reg_code));
+    $this->_request('taxArrears', array('id' => $reg_code));
     return $this;
   }
 
@@ -89,7 +103,7 @@ class Bisnode_Client {
    */
   public function getArListDocs($reg_code)
   {
-    $result = $this->_request('arListDocs', array('id' => $reg_code));
+    $this->_request('arListDocs', array('id' => $reg_code));
     return $this;
   }
 
@@ -100,7 +114,7 @@ class Bisnode_Client {
    */
   public function getArListReports($reg_code)
   {
-    $result = $this->_request('arListReports', array('id' => $reg_code));
+    $this->_request('arListReports', array('id' => $reg_code));
     return $this;
   }
 
@@ -125,7 +139,7 @@ class Bisnode_Client {
   
   /**
    * Format result as JSON
-   * @return stdClass
+   * @return string
    */
   public function asJson()
   {
