@@ -62,6 +62,17 @@ class Bisnode_Client {
   }
 
   
+  /**
+   * Get free company information (general information and contact data)
+   * @param type $reg_code
+   * @return Bisnode_Client
+   */
+  public function getFreeInfo($reg_code)
+  {
+    $this->_request('freeinfo', array('id' => $reg_code));
+    return $this;
+  }
+  
   
   /**
    * Get company short report
