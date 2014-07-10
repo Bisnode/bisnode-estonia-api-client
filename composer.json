@@ -1,7 +1,7 @@
 {
     "name": "bisnode/client-php",
     "description": "Bisnode API client library for PHP",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homepage": "http://www.bisnode.ee/",
     "license": "Apache-2.0",
     "require": {
