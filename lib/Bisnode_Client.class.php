@@ -54,10 +54,33 @@ class Bisnode_Client {
    * @param type $reg_code
    * @return Bisnode_Client
    */
+  public function getKeys( $email, $pass)
+  {
+    $this->_request('keys', array('email' => $email, 'pass' => $pass), false);
+    return $this;
+  }
+  
+  /**
+   * Get company short report
+   * @param type $reg_code
+   * @return Bisnode_Client
+   */
   public function getListOfCompanies()
   {
     $this->_request('listcompanieszipped');
     $this->raw_data = gzinflate(substr($this->raw_data,10,-8)); 
+    return $this;
+  }
+
+  
+  /**
+   * Search by company name
+   * @param type $reg_code
+   * @return Bisnode_Client
+   */
+  public function getCompanySearch($q)
+  {
+    $this->_request('companysearch', array('q' => $q));
     return $this;
   }
 
@@ -205,12 +228,14 @@ class Bisnode_Client {
    * @param array|string $post
    * @return nothing
    */
-  private function _request($url, $post = null)
+  private function _request($method, $post = null, $use_key = true)
   {
     if (is_null($this->client))
       $this->_curl_init();
 
-    $url = $this->api_url . '/' . $this->api_key . '/' . $url . '.' . $this->api_mode;
+    $url = $use_key   // default true
+            ? $this->api_url . '/' . $this->api_key . '/' . $method . '.' . $this->api_mode
+            : $this->api_url . '/' . $method . '.' . $this->api_mode;
 
     $this->_log('POST ' . $url . ' ' . print_r($post, true));
 
