@@ -50,19 +50,19 @@ class Bisnode_Client {
   }
   
   /**
-   * Get company short report
-   * @param type $reg_code
+   * Get user profile information and api keys
+   * @param type $email email
+   * @param type $pass  password
    * @return Bisnode_Client
    */
-  public function getKeys( $email, $pass)
+  public function getProfile( $email, $pass)
   {
-    $this->_request('keys', array('email' => $email, 'pass' => $pass), false);
+    $this->_request('profile', array('email' => $email, 'pass' => $pass), false);
     return $this;
   }
   
   /**
-   * Get company short report
-   * @param type $reg_code
+   * Get list of companies
    * @return Bisnode_Client
    */
   public function getListOfCompanies()
@@ -74,7 +74,7 @@ class Bisnode_Client {
 
   
   /**
-   * Search by company name
+   * Search by company name or reg_number
    * @param type $reg_code
    * @return Bisnode_Client
    */
