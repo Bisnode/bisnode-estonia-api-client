@@ -44,6 +44,10 @@ class Bisnode_Client {
     return is_null(self::$instance) ? self::$instance = new self() : self::$instance;
   }
 
+  /**
+   * 
+   * @return string raw data
+   */
   public function __toString()
   {
     return $this->asIs();
@@ -58,6 +62,26 @@ class Bisnode_Client {
   public function getProfile( $email, $pass)
   {
     $this->_request('profile', array('email' => $email, 'pass' => $pass), false);
+    return $this;
+  }
+    
+  /**
+   * Get baalance of current API key
+   * @return Bisnode_Client
+   */
+  public function getBalance()
+  {
+    $this->_request('balance');
+    return $this;
+  }
+    
+  /**
+   * Get pricelist of current API key
+   * @return Bisnode_Client
+   */
+  public function getPricelilst()
+  {
+    $this->_request('pricelist');
     return $this;
   }
   
