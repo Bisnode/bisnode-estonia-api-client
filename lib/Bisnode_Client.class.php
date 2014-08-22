@@ -236,6 +236,17 @@ class Bisnode_Client {
   }
 
   /**
+   * Change api mode
+   * @param string $mode xml|pdf|json
+   * @return Bisnode_Client
+   */
+  public function setApiMode($mode)
+  {
+    $this->api_mode = $mode;
+    return $this;
+  }
+
+  /**
    * Change api URL
    * @param $url string
    * @return Bisnode_Client
