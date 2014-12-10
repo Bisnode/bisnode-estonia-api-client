@@ -66,6 +66,18 @@ class Bisnode_Client {
   }
     
   /**
+   * Get user profile information and api keys
+   * @param type $email email
+   * @param type $pass  password
+   * @return Bisnode_Client
+   */
+  public function getProfileFinland( $email, $pass)
+  {
+    $this->_request('profile_finland', array('email' => $email, 'pass' => $pass), false);
+    return $this;
+  }
+    
+  /**
    * Get baalance of current API key
    * @return Bisnode_Client
    */
