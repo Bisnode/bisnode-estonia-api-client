@@ -17,8 +17,8 @@
  */
 class Bisnode_Soap_Client {
 
-  public 
-    $url    = 'http://in.bisnode.fi/soap.wsdl',
+  private 
+    $url    = 'http://in.bisnode.ee/soap.wsdl',
     $token  = null,
     $client = null,
     $obj    = null,
@@ -78,6 +78,13 @@ class Bisnode_Soap_Client {
     return $this;
   }
     
+  
+  /**
+   * Get short credit report
+   * @param type $country country (EST,LTU,LVA)
+   * @param type $reg_code  registration number of company
+   * @return Bisnode_Soap_Client
+   */
   public function getCreditReport( $country, $reg_code  )
   {
     $this->_request('getCreditReport', array(
@@ -88,6 +95,12 @@ class Bisnode_Soap_Client {
     return $this;
   }
     
+  /**
+   * Get short credit report
+   * @param type $country country (EST,LTU,LVA)
+   * @param type $reg_code  registration number of company
+   * @return Bisnode_Soap_Client
+   */
   public function getPropartnerCompany( $country, $reg_code  )
   {
     $this->_request('getPropartnerCompany', array(
@@ -98,6 +111,12 @@ class Bisnode_Soap_Client {
     return $this;
   }
     
+  /**
+   * Get KMKR number of company
+   * @param type $country country (EST only)
+   * @param type $reg_code  registration number of company
+   * @return Bisnode_Soap_Client
+   */
   public function getKmkrData( $country, $reg_code  )
   {
     $this->_request('getKmkrData', array(
@@ -108,6 +127,12 @@ class Bisnode_Soap_Client {
     return $this;
   }
   
+  /**
+   * Get tax arrears information of estonian company from Maksuamet
+   * @param type $country country (EST only)
+   * @param type $reg_code  registration number of company
+   * @return Bisnode_Soap_Client
+   */
   public function getTaxArrears( $country, $reg_code  )
   {
     $this->_request('getTaxArrears', array(
@@ -118,6 +143,12 @@ class Bisnode_Soap_Client {
     return $this;
   }
   
+  /**
+   * Get free information about company
+   * @param type $country country (EST,LTU,LVA)
+   * @param type $reg_code  registration number of company
+   * @return Bisnode_Soap_Client
+   */
   public function getFreeInfo( $country, $reg_code  )
   {
     $this->_request('getFreeInfo', array(
@@ -128,6 +159,12 @@ class Bisnode_Soap_Client {
     return $this;
   }
   
+  /**
+   * Search for company registry number by name
+   * @param type $country country (EST,LTU,LVA)
+   * @param type $name Name of company
+   * @return Bisnode_Soap_Client
+   */
   public function searchCompany($country, $name)
   {
     $this->_request('searchCompany', array(
