@@ -36,10 +36,6 @@ class Bisnode_Soap_Client {
     $this->client = new SoapClient($this->url, array(
           'cache_wsdl' => WSDL_CACHE_NONE, 
           'trace'      => true,
-          /*'classmap' => array(
-            'managersType' => 'PropartnerXmlCollectionType',
-            'activitiesType' => 'PropartnerXmlCollectionType',
-          ),*/
           ));
   }
 

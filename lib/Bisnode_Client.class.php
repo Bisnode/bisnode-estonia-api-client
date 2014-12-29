@@ -18,7 +18,7 @@
 class Bisnode_Client {
 
   private $api_key = '',
-          $api_url = 'http://www.bisnode.ee/intranet/api',
+          $api_url = 'http://in.bisnode.ee/api',
           $api_mode = 'xml',
           $client = null,
           $debug = false,

@@ -1,4 +1,5 @@
 Bisnode API client library for PHP
 ==============
 
-See www.bisnode.ee/intranet/apiadmin/docs for details
+http://in.bisnode.ee/apiadmin - REST interface documentation
+http://in.bisnode.ee/soap     - SOAP server documentation
