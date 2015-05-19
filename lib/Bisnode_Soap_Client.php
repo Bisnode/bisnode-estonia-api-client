@@ -77,7 +77,7 @@ class Bisnode_Soap_Client {
 
     /**
      * Get short credit report
-     * @param type $country country (EST,LTU,LVA)
+     * @param type $country country (EST only)
      * @param type $reg_code  registration number of company
      * @return Bisnode_Soap_Client
      */
@@ -125,7 +125,7 @@ class Bisnode_Soap_Client {
 
     /**
      * Get free information about company
-     * @param type $country country (EST,LTU,LVA)
+     * @param type $country country (EST only)
      * @param type $reg_code  registration number of company
      * @return Bisnode_Soap_Client
      */
@@ -157,7 +157,7 @@ class Bisnode_Soap_Client {
 
     /**
      * Get last Annual report PDF file and extracted data
-     * @param type $country country (EST,LTU,LVA)
+     * @param type $country country (EST only)
      * @param type $reg_code  registration number of company
      * @return Bisnode_Soap_Client
      */
@@ -173,7 +173,7 @@ class Bisnode_Soap_Client {
 
     /**
      * Get last Annual report XBRL file and extracted data
-     * @param type $country country (EST,LTU,LVA)
+     * @param type $country country (EST only)
      * @param type $reg_code  registration number of company
      * @return Bisnode_Soap_Client
      */
