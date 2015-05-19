@@ -92,7 +92,7 @@ class Bisnode_Soap_Client {
     }
 
     /**
-     * Get KMKR number of company
+     * Get KMKR information
      * @param type $country country (EST only)
      * @param type $reg_code  registration number of company
      * @return Bisnode_Soap_Client
@@ -214,11 +214,13 @@ class Bisnode_Soap_Client {
 
     /**
      * Get XML data from last request
-     * @return SimpleXMLElement
+     * @return DOMDocument
      */
     public function asXml()
     {
-        return simplexml_load_string($this->asIs(), null, LIBXML_NOCDATA);
+      $xml = new DOMDocument;
+      $xml->loadXML($this->asIs());
+      return $xml;
     }
 
     /**
