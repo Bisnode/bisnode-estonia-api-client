@@ -156,9 +156,9 @@ class Bisnode_Soap_Client {
     }
 
     /**
-     * Get last Annual report PDF file and extracted data
-     * @param type $country country (EST only)
-     * @param type $reg_code  registration number of company
+     * Get last Annual report PDF file and analysis
+     * @param type $country Country (EST only)
+     * @param type $reg_code  Registration number of company
      * @return Bisnode_Soap_Client
      */
     public function getLastAnnualReportPdf($country, $reg_code)
@@ -172,9 +172,9 @@ class Bisnode_Soap_Client {
     }
 
     /**
-     * Get last Annual report XBRL file and extracted data
-     * @param type $country country (EST only)
-     * @param type $reg_code  registration number of company
+     * Get last annual report XBRL file and analysis
+     * @param type $country Country (EST only)
+     * @param type $reg_code  Registration number of company
      * @return Bisnode_Soap_Client
      */
     public function getLastAnnualReportXbrl($country, $reg_code)
@@ -183,6 +183,42 @@ class Bisnode_Soap_Client {
             'token'=>$this->token,
             'country' => $country,
             'reg_code' => $reg_code,
+        ));
+        return $this;
+    }
+
+    /**
+     * Get list of annual report doc_id, doc_type and year
+     * @param type $country Country (EST only)
+     * @param type $reg_code  Registration number of company
+     * @return Bisnode_Soap_Client
+     */
+    public function listAnnualReport($country, $reg_code)
+    {
+        $this->_request('listAnnualReport', array(
+            'token'=>$this->token,
+            'country' => $country,
+            'reg_code' => $reg_code,
+        ));
+        return $this;
+    }
+
+    /**
+     * Get annual report of specific type and year, with analysis
+     * @param $country Country (EST only)
+     * @param $reg_code Registration number of company
+     * @param $doc_type X - xbrl, A - pdf, D - digidoc
+     * @param $annual_year Annual year
+     * @return Bisnode_Soap_Client
+     */
+    public function getAnnualReport($country, $reg_code, $doc_type, $annual_year)
+    {
+        $this->_request('getAnnualReport', array(
+            'token' => $this->token,
+            'country'  => $country,
+            'reg_code' => $reg_code,
+            'doc_type' => $doc_type,
+            'annual_year' => $annual_year,
         ));
         return $this;
     }
