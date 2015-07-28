@@ -121,9 +121,9 @@
      * @param type $reg_code registration number of company
      * @return Bisnode_Soap_Client
      */
-    public function getLightCreditReport($country, $reg_code)
+    public function getSimpleCreditReport($country, $reg_code)
     {
-      $this->_request('getLightCreditReport', array(
+      $this->_request('getSimpleCreditReport', array(
           'token'    => $this->token,
           'country'  => $country,
           'reg_code' => $reg_code,
